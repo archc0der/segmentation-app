@@ -8,9 +8,10 @@ import io
 import base64
 from torchvision import transforms
 import torch.nn.functional as F
+from functools import lru_cache
 
 # Load the pretrained model
-@gr.utils.cache
+@lru_cache(maxsize=None)
 def load_model():
     """Load the pretrained brain segmentation model"""
     try:
